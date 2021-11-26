@@ -2,7 +2,7 @@ x-networks: &golang-skeleton-networks
   - golang-skeleton-net
 
 x-golang-skeleton-api-port: &golang-skeleton-api-port
-  - "8080:8080"
+  - "8081:8080"
 
 version: '3.8'
 
@@ -16,6 +16,8 @@ services:
     command: sh -c "./main"
     ports: *golang-skeleton-api-port
     networks: *golang-skeleton-networks
+  
+  nginx:
 
 networks:
   golang-skeleton-net:
