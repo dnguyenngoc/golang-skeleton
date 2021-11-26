@@ -16,8 +16,6 @@ services:
     command: sh -c "./main"
     ports: *golang-skeleton-api-port
     networks: *golang-skeleton-networks
-  
-  nginx:
 
 networks:
   golang-skeleton-net:
