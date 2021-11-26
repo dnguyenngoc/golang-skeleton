@@ -1,7 +1,8 @@
 # Start from golang base image
 FROM golang:alpine as builder
 
-LABEL maintainer="Duy Nguyen <duynguyenngoc@hotmail.com>"
+LABEL maintainer="Nghia Nguyen <ngocnghia128@gmail.com>"
+
 
 WORKDIR /src
 
