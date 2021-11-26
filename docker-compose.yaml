@@ -1,0 +1,21 @@
+x-networks: &golang-skeleton-networks
+  - golang-skeleton-net
+
+x-golang-skeleton-api-port: &golang-skeleton-api-port
+  - "8080:8080"
+
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: golang-skeleton-api
+    restart: unless-stopped
+    command: sh -c "./main"
+    ports: *golang-skeleton-api-port
+    networks: *golang-skeleton-networks
+
+networks:
+  golang-skeleton-net:
