@@ -18,7 +18,7 @@ This is project structure golang gin/gorm framework restfull api. :fire: :fire: 
 - [Gorm](#gorm)
 - [Postgresql](#postgresql)
 - [Structure](#structure)
-- [Api](#api)
+<!-- - [Api](#api) -->
 - [For dev](#for-dev)
 - [Contact Us](#contact-us)
 
@@ -57,8 +57,8 @@ PostgreSQL is a powerful, open source object-relational database system with ove
 └── Dockerfile // dockerfile
 ```
 
-## Api
-here
+<!-- ## Api
+here -->
 
 ## For Dev
 
