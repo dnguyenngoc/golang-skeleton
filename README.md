@@ -3,11 +3,10 @@ This is project structure golang gin/gorm framework restfull api.
 
 ## Contents
 - [Gin Web Framework](#gin-web-framework)
-- [Gorm. The fantastic ORM library for Golang](#gorm)
+- [Gorm. The fantastic ORM library for Golang](#gorm-the-fantastic-orm-library-for-golang)
 - [Postgresql](#postgresql)
 - [Structure](#structure)
 - [Api](#api)
-- [Docker/Compose](#docker-compose)
 - [For dev](#for-dev)
 
 
