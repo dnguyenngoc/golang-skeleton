@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: "golang-skeleton-api:latest"
+          image: "golang-skeleton_api:latest"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
