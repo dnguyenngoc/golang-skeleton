@@ -1,9 +1,12 @@
 x-networks: &golang-skeleton-networks
   - golang-skeleton-net
 x-golang-skeleton-api-port: &golang-skeleton-api-port
-  - "8080:8080"
+  - "80:8080"
 x-golang-skeleton-redis-port: &golang-skeleton-redis-port
   - "6379:6379"
+x-golang-skeleton-rabbitmq-port: &golang-skeleton-rabbitmq-port
+  - "5672:5672"
+  - "15672:15672"
 
 
 version: '3.8'
@@ -18,19 +21,19 @@ services:
     command: sh -c "./main"
     ports: *golang-skeleton-api-port
     networks: *golang-skeleton-networks
-  # redis:
-  #   image: redis:latest
-  #   restart: unless-stopped
-  #   hostname: redis
-  #   ports: *golang-skeleton-redis-port
-  #   networks: *golang-skeleton-networks
-    # volumes:
-    #   - ./redis/dump.rdb:/data/dump.rdb
-    #   - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-
-  # rabitmq:
-  # db:
-
+  redis:
+    image: redis:latest
+    container_name: 'redis'
+    restart: unless-stopped
+    hostname: redis
+    ports: *golang-skeleton-redis-port
+    networks: *golang-skeleton-networks
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    restart: unless-stopped
+    ports: *golang-skeleton-rabbitmq-port
+    networks: *golang-skeleton-networks
 
 networks:
   golang-skeleton-net:
