@@ -8,6 +8,8 @@ This is project structure golang gin/gorm framework restfull api.
 - [Structure](#structure)
 - [Api](#api)
 - [For dev](#for-dev)
+- [Contact Us](#contact)
+
 
 
 
@@ -35,16 +37,19 @@ https://www.docker.com/
 ### 2. Clone this repo
 `git clone https://github.com/apot-group/golang-skeleton.git` 
 
-### 3. From project dir:
+### 3. From project dir
 
 `docker-compose up --build`
 
-## API DOCS
+### 4. Api doc
 
-Api docs at: http://localhost:8080/api/docs#/
+`http://localhost:8080/api/docs#/`
 
 
 ## Contact Us
-=============
+
+Instagram-1: [@duy.nguyen.ngoc](https://www.instagram.com/duy.nguyen.ngoc/) :heart: :heart: :heart: 
+
 Email-1: duynguyenngoc@hotmail.com - Duy Nguyen
+
 Email-2: ngocnghia128@gmail.com - Nghia Nguyen
