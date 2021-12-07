@@ -4,14 +4,14 @@ FROM golang:alpine as builder
 LABEL maintainer="Nghia Nguyen <ngocnghia128@gmail.com>"
 
 
-WORKDIR /src
+WORKDIR /api
 
-COPY src/go.mod ./
-COPY src/main.go ./
+COPY api/go.mod ./
+COPY api/main.go ./
 
 RUN go mod download 
 
-COPY src ./
+COPY api ./
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
@@ -23,9 +23,9 @@ RUN apk --no-cache add ca-certificates
 
 WORKDIR /root/
 
-COPY --from=builder /src/main .
+COPY --from=builder /api/main .
 # COPY --from=builder /app/.env .   
-COPY --from=builder /src/template template
+COPY --from=builder /api/template template
 
 EXPOSE 8080
 
