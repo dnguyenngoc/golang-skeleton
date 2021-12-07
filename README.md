@@ -1,7 +1,19 @@
 # Skeleton go gin/gorm
 This is project structure golang gin/gorm framework restfull api. :fire: :fire: :fire:.
 
+## Screenshots & Gifs
+
+**Gallery**
+
+<kbd>
+  <a href="https://github.com/dnguyenngoc/film">
+    <img title="Gallery" src="https://github.com/dnguyenngoc/film/blob/main/statics/ga.png?raw=true">
+  </a>
+</kbd>
+<br/> -->
+
 ## Contents
+- [Screenshots & Gifs](#screenshots-&-gifs)
 - [Gin Web Framework](#gin-web-framework)
 - [Gorm](#gorm)
 - [Postgresql](#postgresql)
