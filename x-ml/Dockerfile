@@ -29,6 +29,6 @@ RUN pip install -r requirements.txt
 # copy project
 COPY ./app/ /app/
 
-# CMD ["celery", "-A w.app worker --loglevel=info --concurrency=2 -E --logfile=logs/celery.log"]
+# CMD ["celery", "-A tasks worker --loglevel=info --concurrency=2 -E --logfile=logs/celery.log"]
 
 EXPOSE 8081

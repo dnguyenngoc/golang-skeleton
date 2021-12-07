@@ -29,6 +29,7 @@ def get_backend_url() -> str:
 
 
 def is_backend_running() -> bool:
+    print(get_backend_url())
     try:
         conn = Redis(
             host=get_redis_host(),

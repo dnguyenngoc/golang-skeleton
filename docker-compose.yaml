@@ -34,22 +34,21 @@ services:
       - rabbitmq
     networks: *golang-skeleton-networks
 
-  redis:
+  redis-service:
     image: redis:latest
-    container_name: 'redis'
+    container_name: 'redis-service'
     restart: unless-stopped
     hostname: redis
-    command: redis-server --requirepass password
+    command: redis-server
     ports: *golang-skeleton-redis-port
     networks: *golang-skeleton-networks
-  rabbitmq:
+  rabbitmq-service:
     image: rabbitmq:3-management-alpine
-    container_name: 'rabbitmq'
+    container_name: 'rabbitmq-service'
     restart: unless-stopped
     environment:
-      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
-      RABBITMQ_DEFAULT_USER: "rabbitmq"
-      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
       RABBITMQ_DEFAULT_VHOST: ""
     ports: *golang-skeleton-rabbitmq-port
     networks: *golang-skeleton-networks

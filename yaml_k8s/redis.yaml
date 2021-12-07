@@ -1,36 +1,41 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis
+  name: app-redis-deployment
   labels:
-    app: redis
+    app: app
 spec:
   selector:
     matchLabels:
-      app: redis
+      type: redis-pod
+      app: app
   replicas: 1
   template:
     metadata:
+      name: app-redis-pod
       labels:
-        app: redis
+        type: redis-pod
+        app: app
     spec:
       containers:
-        - name: redis
-          image: redis
+        - name: x-redis
+          image: redis:latest
           ports:
             - containerPort: 6379
+          command: ["redis-server", "--bind", "0.0.0.0", "--port", "6379"]
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-service
+  name: app-redis
   labels:
-    app: redis-service
-    role: master
+    type: app-redis-service
+    app: app
 spec:
   ports:
     - port: 6379
       targetPort: 6379
   selector:
-    app: redis
+    type: redis-pod
+    app: app

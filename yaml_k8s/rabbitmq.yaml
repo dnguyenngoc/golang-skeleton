@@ -1,47 +1,45 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rabbitmq
+  name: app-rabbitmq-deployment
+  labels:
+    app: app
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: rabbitmq
+      type: rabbitmq-pod
+      app: app
   template:
     metadata:
+      name: app-rabbitmq-pod
       labels:
-        app: rabbitmq
+        type: rabbitmq-pod
+        app: app
     spec:
       containers:
-        - name: rabbitmq
-          image: "rabbitmq:3-management"
-          ports:
-            - containerPort: 15672
-            - containerPort: 5672
+        - name: app-rabbitmq
+          image: rabbitmq
           env:
-            - name: RABBITMQ_ERLANG_COOKIE
-              value: "SWQOKODSQALRPCLNMEQG"
             - name: RABBITMQ_DEFAULT_USER
-              value: "rabbitmq"
+              value: "guest"
             - name: RABBITMQ_DEFAULT_PASS
-              value: "rabbitmq"
-            - name: RABBITMQ_DEFAULT_VHOST
-              value: "/"
+              value: "guest"
+          ports:
+            - containerPort: 5672
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: rabbitmq-service
+  name: app-rabbitmq
   labels:
-    app: rabbitmq-service
+    type: app-rabbitmq-service
+    app: app
 spec:
-  type: LoadBalancer
   ports:
-    - name: http
-      protocol: TCP
-      port: 15672
-    - name: amqp
-      protocol: TCP
-      port: 5672
+    - port: 5672
+      targetPort: 5672
   selector:
-    app: rabbitmq
+    type: rabbitmq-pod
+    app: app
