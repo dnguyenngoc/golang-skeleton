@@ -22,7 +22,7 @@ spec:
           image: redis:latest
           ports:
             - containerPort: 6379
-          command: ["redis-server", "--bind", "0.0.0.0", "--port", "6379"]
+          # command: ["redis-server", "--bind", "0.0.0.0", "--port", "6379"]
 
 ---
 apiVersion: v1
