@@ -10,10 +10,10 @@ This is project structure golang gin/gorm framework restfull api. :fire: :fire: 
     <img title="Gallery" src="https://github.com/dnguyenngoc/film/blob/main/statics/ga.png?raw=true">
   </a>
 </kbd>
-<br/> -->
+<br/> 
 
 ## Contents
-- [Screenshots & Gifs](#screenshots-&-gifs)
+- [Screenshots & Gifs](#screenshots--gifs)
 - [Gin Web Framework](#gin-web-framework)
 - [Gorm](#gorm)
 - [Postgresql](#postgresql)
@@ -35,7 +35,27 @@ The fantastic ORM library for Golang aims to be developer friendly. docs at [gor
 PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance. docs at [postgresql](https://www.postgresql.org/docs/current/)
 
 ## Structure
-here
+```
+├── src
+│   ├──controllers // controller
+│       └── v1.go
+│   ├──databases
+│       └── models.go // model, get data from database 
+│       └── db_connect.go // model, get data from database 
+│   ├──helpers
+│       └── time.go // utils handle time 
+│   ├──routes
+│       └── v1.go // router for v1 api config
+│   ├──securities
+│       └──auth.go // token handle
+│   ├──settings
+│       └──config.go // config and environment 
+│   ├──template // html template and more
+│   ├──go.mod // go module
+│   ├──go.sum // go module
+├── docker-compose.yaml // container with compose
+└── Dockerfile // dockerfile
+```
 
 ## Api
 here
