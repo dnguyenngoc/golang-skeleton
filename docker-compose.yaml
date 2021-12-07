@@ -8,30 +8,49 @@ x-golang-skeleton-rabbitmq-port: &golang-skeleton-rabbitmq-port
   - "5672:5672"
   - "15672:15672"
 
-
 version: '3.8'
 
 services:
   api:
     build:
-      context: ./
+      context: ./x-api
       dockerfile: ./Dockerfile
     container_name: golang-skeleton-api
     restart: unless-stopped
     command: sh -c "./main"
     ports: *golang-skeleton-api-port
     networks: *golang-skeleton-networks
+  ml:
+    build:
+      context: ./x-ml
+      dockerfile: ./Dockerfile
+    container_name: golang-skeleton-ml
+    restart: unless-stopped
+    command: sh -c "celery -A tasks worker --loglevel=info --concurrency=2 -E --logfile=logs/celery.log"
+    volumes:
+      - ./x-ml/app/:/app/
+    depends_on:
+      - redis
+      - rabbitmq
+    networks: *golang-skeleton-networks
+
   redis:
     image: redis:latest
     container_name: 'redis'
     restart: unless-stopped
     hostname: redis
+    command: redis-server --requirepass password
     ports: *golang-skeleton-redis-port
     networks: *golang-skeleton-networks
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'
     restart: unless-stopped
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: ""
     ports: *golang-skeleton-rabbitmq-port
     networks: *golang-skeleton-networks
 

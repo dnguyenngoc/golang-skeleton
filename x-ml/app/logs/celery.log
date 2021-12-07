@@ -1,0 +1,13 @@
+[2021-12-07 18:40:18,642: ERROR/MainProcess] consumer: Cannot connect to amqp://rabbitmq:**@rabbitmq:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds... (1/100)
+
+[2021-12-07 18:40:20,650: ERROR/MainProcess] consumer: Cannot connect to amqp://rabbitmq:**@rabbitmq:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds... (2/100)
+
+[2021-12-07 18:40:24,661: ERROR/MainProcess] consumer: Cannot connect to amqp://rabbitmq:**@rabbitmq:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds... (3/100)
+
+[2021-12-07 18:40:30,684: INFO/MainProcess] Connected to amqp://rabbitmq:**@rabbitmq:5672//
+[2021-12-07 18:40:30,703: INFO/MainProcess] mingle: searching for neighbors
+[2021-12-07 18:40:31,741: INFO/MainProcess] mingle: all alone
+[2021-12-07 18:40:31,767: INFO/MainProcess] celery@8cc870b989e3 ready.

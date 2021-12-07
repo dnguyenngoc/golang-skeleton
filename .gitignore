@@ -1,0 +1,7 @@
+# api
+__pycache__
+
+# face-recorgnition
+*.ini
+*.onnx
+*.sav
