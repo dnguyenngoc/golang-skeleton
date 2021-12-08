@@ -16,4 +16,5 @@ app.config_from_object('settings.celery_config')
 
 @app.task(bind=True, name="{}.test".format(celery_config.QUERY_NAME))
 def test(self):
+    model = CompleteModel()
     print("test")

@@ -1,6 +1,7 @@
 package settings
 
 import (
+	"log"
 	"os"
 
 	"github.com/BurntSushi/toml"
@@ -34,9 +35,9 @@ func InitConfig() {
 	}
 	_, err := toml.DecodeFile(f, &config)
 	if err != nil {
-		// fmt.Fprintln(os.Stderr, err)
 		loggers.ErrorLogger.Fatal(err)
 		os.Exit(1)
+		log.Panic(err)
 	}
 	loggers.InfoLogger.Println("Init config is Decoded!")
 

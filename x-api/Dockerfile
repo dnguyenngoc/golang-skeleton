@@ -26,6 +26,10 @@ WORKDIR /root/
 COPY --from=builder /src/main .
 # COPY --from=builder /app/.env .   
 COPY --from=builder /src/template template
+COPY --from=builder /src/loggers loggers
+COPY --from=builder /src/settings/environment.toml environment.toml
+
+
 
 EXPOSE 8080
 

@@ -17,11 +17,11 @@ func SetupRoutes() *gin.Engine {
 	v1 := api.Group("v1")
 
 	// // HOME PAGE**********************************************************************************
-	ml := v1.Group("home")
+	ml := v1.Group("ml")
 	{
-		ml.POST("ml/face/detection", controllers.FaceDeteaction)
-		ml.POST("ml/face/recognition", controllers.FaceRecognition)
-		ml.GET("ml/face/:task_id", controllers.StatusCelery)
+		ml.POST("face/detection", controllers.FaceDeteaction)
+		ml.POST("face/recognition", controllers.FaceRecognition)
+		ml.GET("face/:task_id", controllers.StatusCelery)
 	}
 
 	return r
