@@ -1,22 +1,51 @@
+/**
+ * @author Duy Nguyen
+ * @email duynguyenngoc@hotmail.com
+ * @create date 2021-12-08
+ * @desc go-main init
+ */
+
 package main
 
 import (
-  "net/http"
-  "github.com/gin-gonic/gin"
+	_ "encoding/json"
+	_ "fmt"
+
+	"github.com/apot-group/golang-skeleton/routes"
+	"github.com/bsphere/celery"
+	"github.com/gin-gonic/gin"
+	"github.com/streadway/amqp"
 )
 
-func init() {
-	// db := config.Init()
-	// migration.Migrate(db)
-}
-
-
 func main() {
-  r := gin.Default()
 
-  r.GET("/", func(c *gin.Context) {
-    c.JSON(http.StatusOK, gin.H{"data": "hello world"})    
-  })
+	conn, err := amqp.Dial("amqp://guest:guest@rabbitmq-service:5672/")
+	if err != nil {
+		panic(err)
+	}
+	defer conn.Close()
 
-  r.Run()
+	ch, err := conn.Channel()
+	if err != nil {
+		panic(err)
+	}
+
+	gin.SetMode(gin.ReleaseMode)
+
+	r := routes.SetupRoutes()
+
+	r.GET("/test", func(c *gin.Context) {
+		task, err := celery.NewTask("x-ml.test", []string{}, nil)
+		if err != nil {
+			panic(err)
+		}
+
+		err = task.Publish(ch, "", "x-ml")
+		if err != nil {
+			panic(err)
+		}
+
+	})
+
+	r.Run()
 }
