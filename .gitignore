@@ -5,7 +5,7 @@ __pycache__
 *.ini
 *.onnx
 *.sav
-celery.log
+*.log
 
 # macos
 .DS_Store
