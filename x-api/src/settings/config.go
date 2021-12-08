@@ -1,10 +1,10 @@
 package settings
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/BurntSushi/toml"
+	"github.com/apot-group/golang-skeleton/x-api/src/loggers"
 )
 
 type (
@@ -26,18 +26,18 @@ var config *Config
 
 func InitConfig() {
 
-	fmt.Println("==========================")
-	fmt.Println("Load toml file config ...")
-	fmt.Println("==========================")
+	loggers.InfoLogger.Println("Load toml file config ...")
 	f := "./environment.toml"
 	if _, err := os.Stat(f); err != nil {
+		loggers.WarningLogger.Println("wrong env file path -> try to other path.")
 		f = "./settings/environment.toml"
 	}
 	_, err := toml.DecodeFile(f, &config)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
+		// fmt.Fprintln(os.Stderr, err)
+		loggers.ErrorLogger.Fatal(err)
 		os.Exit(1)
 	}
-	fmt.Println("Decoded!")
+	loggers.InfoLogger.Println("Init config is Decoded!")
 
 }

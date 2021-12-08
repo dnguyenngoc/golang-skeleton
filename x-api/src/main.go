@@ -10,7 +10,9 @@ package main
 import (
 	_ "encoding/json"
 	_ "fmt"
+	"log"
 
+	"github.com/apot-group/golang-skeleton/x-api/src/loggers"
 	"github.com/apot-group/golang-skeleton/x-api/src/routes"
 	"github.com/apot-group/golang-skeleton/x-api/src/settings"
 
@@ -22,11 +24,15 @@ import (
 
 func main() {
 
-	// init config
+	log.Println("Loading init app ......")
+
+	loggers.InitLoggerConfig()
+
+	loggers.InfoLogger.Println("Starting the application...")
 	settings.InitConfig()
+	loggers.InfoLogger.Println("Init config variable completed! -> Init celery config")
 
 	// int celery
-
 	// conn, err := amqp.Dial("amqp://guest:guest@rabbitmq-service:5672/")
 	// if err != nil {
 	// 	panic(err)
@@ -34,9 +40,11 @@ func main() {
 	// defer conn.Close()
 
 	// ch, err := conn.Channel()
-	// if err != nil {
-	// 	panic(err)
-	// }
+	// // if err != nil {
+	// // 	panic(err)
+	// // }
+
+	log.Println("Loading init app Completed! -> Loading gin router ...")
 
 	gin.SetMode(gin.ReleaseMode)
 
@@ -54,6 +62,7 @@ func main() {
 	// 	}
 
 	// })
-
+	log.Println("Loading gin router Completed! -> Server run on :8080")
 	r.Run()
+
 }
