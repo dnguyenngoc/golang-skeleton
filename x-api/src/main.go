@@ -33,16 +33,18 @@ func main() {
 
 	tasks.InitCeleryConfig()
 
+	loggers.InfoLogger.Println("Init celery config completed! -> Start gin service ...")
+
 	log.Println("Loading init app Completed! -> Loading gin router ...")
 
 	gin.SetMode(gin.ReleaseMode)
 
 	r := routes.SetupRoutes()
 
-	// r.GET("/test", func(c *gin.Context) {
-
-	// })
 	log.Println("Loading gin router Completed! -> Server run on :8080")
+
+	loggers.InfoLogger.Println("Server run on :8080")
+
 	r.Run()
 
 }
