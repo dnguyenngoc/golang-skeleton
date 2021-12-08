@@ -1,3 +1,10 @@
+/**
+ * @author Duy Nguyen
+ * @email duynguyenngoc@hotmail.com
+ * @create date 2021-12-08
+ * @desc go-main init
+ */
+
 package tasks
 
 import (
