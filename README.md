@@ -18,7 +18,6 @@ This is project structure golang gin/gorm framework restfull api. :fire: :fire: 
 - [Gorm](#gorm)
 - [Postgresql](#postgresql)
 - [Structure](#structure)
-<!-- - [Api](#api) -->
 - [For dev](#for-dev)
 - [Contact Us](#contact-us)
 
