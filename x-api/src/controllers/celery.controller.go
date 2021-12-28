@@ -3,7 +3,9 @@ package controllers
 import (
 	_ "net/http"
 
-	"github.com/apot-group/golang-skeleton/x-api/src/apientities"
+	timeHelper "github.com/apot-group/golang-skeleton/x-api/src/helpers/times"
+
+	celeryEntity "github.com/apot-group/golang-skeleton/x-api/src/apientities/celery.entity"
 	"github.com/gin-gonic/gin"
 	// "time"
 )
@@ -22,11 +24,9 @@ import (
 // @Router       /celery/status/{task_id} [get]
 func StatusCelery(c *gin.Context) {
 	taskId := c.Param("task_id")
-	status := apientities.CeleryStatus{Upload: "SUCCESS", Ml: "SUCCESS", General: "SUCCESS"}
-	// timeTest := time.Parse(time.RFC3339, "2018-12-12T11:45:26.371Z")
-	// times := apientities.CeleryTimes{StartUpload: time, EndUpload: timem}
-	var result = apientities.CeleryStatusResult{TaskId: taskId, Status: status}
-
+	status := celeryEntity.CeleryStatus{Upload: "SUCCESS", Ml: "SUCCESS", General: "SUCCESS"}
+	now := timeHelper.GetNowTime()
+	times := celeryEntity.CeleryTimes{StartUpload: now, EndUpload: now, StartMl: now, EndMl: now}
+	var result = celeryEntity.CeleryStatusResult{TaskId: taskId, Status: status, Times: times}
 	c.JSON(200, result)
-	// return
 }

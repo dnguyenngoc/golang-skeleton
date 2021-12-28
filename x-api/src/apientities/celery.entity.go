@@ -9,10 +9,10 @@ type CeleryStatus struct {
 }
 
 type CeleryTimes struct {
-	StartUpload time.Time `json:"start_upload" example:"2021-12-29 10:11:22" format:"string"`
-	EndUpload   time.Time `json:"end_upload" example:"2021-12-29 10:11:22" format:"string"`
-	StartMl     time.Time `json:"start_ml" example:"2021-12-29 10:11:22" format:"string"`
-	EndMl       time.Time `json:"end_ml" example:"2021-12-29 10:11:22" format:"string"`
+	StartUpload time.Time `json:"start_upload" example:"2021-12-29 10:11:22"`
+	EndUpload   time.Time `json:"end_upload" example:"2021-12-29 10:11:22"`
+	StartMl     time.Time `json:"start_ml" example:"2021-12-29 10:11:22"`
+	EndMl       time.Time `json:"end_ml" example:"2021-12-29 10:11:22"`
 }
 
 type CeleryStatusResult struct {
