@@ -1,0 +1,15 @@
+basePath: /api/v1
+host: localhost:8080
+info:
+  contact:
+    email: duynguyenngoc@hotmail.com
+    name: Duy Nguyen
+  description: This is a x-ml api server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger x-api
+  version: "1.0"
+paths: {}
+swagger: "2.0"

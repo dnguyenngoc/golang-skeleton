@@ -1,0 +1,20 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a x-ml api server.",
+        "title": "Swagger x-api",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Duy Nguyen",
+            "email": "duynguyenngoc@hotmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api/v1",
+    "paths": {}
+}

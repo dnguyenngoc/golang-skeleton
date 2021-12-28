@@ -18,7 +18,7 @@ import (
 // var conn *amqp.Connection
 // var ch *amqp.Channel
 
-const rabbitmqUrl = `amqp://guest:guest@rabbitmq-service:5672/`
+const rabbitmqUrl = `amqp://guest:guest@localhost:5672/`
 
 func InitCeleryConfig() {
 
