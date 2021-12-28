@@ -11,31 +11,32 @@ x-golang-skeleton-rabbitmq-port: &golang-skeleton-rabbitmq-port
 version: '3.8'
 
 services:
-  api:
-    build:
-      context: ./x-api
-      dockerfile: ./Dockerfile
-    container_name: golang-skeleton-api
-    restart: unless-stopped
-    command: sh -c "./main"
-    depends_on:
-      - redis-service
-      - rabbitmq-service
-    ports: *golang-skeleton-api-port
-    networks: *golang-skeleton-networks
-  ml:
-    build:
-      context: ./x-ml
-      dockerfile: ./Dockerfile
-    container_name: golang-skeleton-ml
-    restart: unless-stopped
-    command: sh -c "celery -A tasks worker --loglevel=info --concurrency=2 -E --logfile=logs/celery.log"
-    volumes:
-      - ./x-ml/app/:/app/
-    depends_on:
-      - redis-service
-      - rabbitmq-service
-    networks: *golang-skeleton-networks
+  # api:
+  #   build:
+  #     context: ./x-api
+  #     dockerfile: ./Dockerfile
+  #   container_name: golang-skeleton-api
+  #   restart: unless-stopped
+  #   command: sh -c "./main"
+  #   depends_on:
+  #     - redis-service
+  #     - rabbitmq-service
+  #   ports: *golang-skeleton-api-port
+  #   networks: *golang-skeleton-networks
+
+  # ml:
+  #   build:
+  #     context: ./x-ml
+  #     dockerfile: ./Dockerfile
+  #   container_name: golang-skeleton-ml
+  #   restart: unless-stopped
+  #   command: sh -c "celery -A tasks worker --loglevel=info --concurrency=1 -E --logfile=logs/celery.log"
+  #   volumes:
+  #     - ./x-ml/app/:/app/
+  #   depends_on:
+  #     - redis-service
+  #     - rabbitmq-service
+  #   networks: *golang-skeleton-networks
 
   redis-service:
     image: redis:latest
@@ -45,6 +46,7 @@ services:
     command: redis-server
     ports: *golang-skeleton-redis-port
     networks: *golang-skeleton-networks
+
   rabbitmq-service:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq-service'
