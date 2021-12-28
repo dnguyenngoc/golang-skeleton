@@ -38,6 +38,8 @@ func InitCeleryConfig() {
 }
 
 // need improve this fuction when have lagre sent task to rabbitmq in save time
+// now not handle reconnect amqp and Channel -> alway create new conn and channel when sent new task
+// maybe create local val for handle it late!
 func SentTask(exchange string, key string, taskName string, args []string, kwargs map[string]interface{}) {
 	conn, err := amqp.Dial(rabbitmqUrl)
 	if err != nil {

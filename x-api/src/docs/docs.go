@@ -57,7 +57,7 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/apientities.CeleryStatus"
+                            "$ref": "#/definitions/apientities.CeleryStatusResult"
                         }
                     },
                     "400": {
@@ -86,10 +86,61 @@ var doc = `{
         "apientities.CeleryStatus": {
             "type": "object",
             "properties": {
+                "general": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "SUCCESS"
+                },
+                "ml": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "SUCCESS"
+                },
+                "upload": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "SUCCESS"
+                }
+            }
+        },
+        "apientities.CeleryStatusResult": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "$ref": "#/definitions/apientities.CeleryStatus"
+                },
                 "task_id": {
                     "type": "string",
                     "format": "string",
                     "example": "550e8400-e29b-41d4-a716-446655440000"
+                },
+                "times": {
+                    "$ref": "#/definitions/apientities.CeleryTimes"
+                }
+            }
+        },
+        "apientities.CeleryTimes": {
+            "type": "object",
+            "properties": {
+                "end_ml": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "2021-12-29 10:11:22"
+                },
+                "end_upload": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "2021-12-29 10:11:22"
+                },
+                "start_ml": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "2021-12-29 10:11:22"
+                },
+                "start_upload": {
+                    "type": "string",
+                    "format": "string",
+                    "example": "2021-12-29 10:11:22"
                 }
             }
         }

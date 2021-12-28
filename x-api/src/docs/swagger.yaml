@@ -2,8 +2,46 @@ basePath: /api/v1
 definitions:
   apientities.CeleryStatus:
     properties:
+      general:
+        example: SUCCESS
+        format: string
+        type: string
+      ml:
+        example: SUCCESS
+        format: string
+        type: string
+      upload:
+        example: SUCCESS
+        format: string
+        type: string
+    type: object
+  apientities.CeleryStatusResult:
+    properties:
+      status:
+        $ref: '#/definitions/apientities.CeleryStatus'
       task_id:
         example: 550e8400-e29b-41d4-a716-446655440000
+        format: string
+        type: string
+      times:
+        $ref: '#/definitions/apientities.CeleryTimes'
+    type: object
+  apientities.CeleryTimes:
+    properties:
+      end_ml:
+        example: "2021-12-29 10:11:22"
+        format: string
+        type: string
+      end_upload:
+        example: "2021-12-29 10:11:22"
+        format: string
+        type: string
+      start_ml:
+        example: "2021-12-29 10:11:22"
+        format: string
+        type: string
+      start_upload:
+        example: "2021-12-29 10:11:22"
         format: string
         type: string
     type: object
@@ -37,7 +75,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/apientities.CeleryStatus'
+            $ref: '#/definitions/apientities.CeleryStatusResult'
         "400":
           description: Bad Request
           schema:

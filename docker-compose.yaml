@@ -1,7 +1,7 @@
 x-networks: &golang-skeleton-networks
   - golang-skeleton-net
 x-golang-skeleton-api-port: &golang-skeleton-api-port
-  - "80:8080"
+  - "8080:8080"
 x-golang-skeleton-redis-port: &golang-skeleton-redis-port
   - "6379:6379"
 x-golang-skeleton-rabbitmq-port: &golang-skeleton-rabbitmq-port
@@ -11,18 +11,18 @@ x-golang-skeleton-rabbitmq-port: &golang-skeleton-rabbitmq-port
 version: '3.8'
 
 services:
-  # api:
-  #   build:
-  #     context: ./x-api
-  #     dockerfile: ./Dockerfile
-  #   container_name: golang-skeleton-api
-  #   restart: unless-stopped
-  #   command: sh -c "./main"
-  #   depends_on:
-  #     - redis-service
-  #     - rabbitmq-service
-  #   ports: *golang-skeleton-api-port
-  #   networks: *golang-skeleton-networks
+  api:
+    build:
+      context: ./x-api
+      dockerfile: ./Dockerfile
+    container_name: golang-skeleton-api
+    restart: unless-stopped
+    command: sh -c "./main"
+    depends_on:
+      - redis-service
+      - rabbitmq-service
+    ports: *golang-skeleton-api-port
+    networks: *golang-skeleton-networks
 
   # ml:
   #   build:
