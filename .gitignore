@@ -1,6 +1,10 @@
 # api
 __pycache__
 *.toml
+docs.go
+swagger.json
+swagger.yaml
+
 
 # face-recorgnition
 *.ini
