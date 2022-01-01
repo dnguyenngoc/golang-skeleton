@@ -11,13 +11,10 @@ import (
 	"net/http"
 
 	"github.com/apot-group/golang-skeleton/x-api/src/apientities"
-	_ "github.com/apot-group/golang-skeleton/x-api/src/apientities"
 	"github.com/apot-group/golang-skeleton/x-api/src/helpers"
 	"github.com/apot-group/golang-skeleton/x-api/src/tasks"
-	_ "github.com/apot-group/golang-skeleton/x-api/src/tasks"
-	"github.com/twinj/uuid"
-
 	"github.com/gin-gonic/gin"
+	"github.com/twinj/uuid"
 	// "github.com/apot-group/golang-skeleton/x-api/src/loggers"
 )
 

@@ -1,12 +1,9 @@
 package controllers
 
 import (
-	"github.com/apot-group/golang-skeleton/x-api/src/helpers"
-
 	"github.com/apot-group/golang-skeleton/x-api/src/apientities"
-
+	"github.com/apot-group/golang-skeleton/x-api/src/helpers"
 	"github.com/gin-gonic/gin"
-	// "time"
 )
 
 // Status Celery By Id
