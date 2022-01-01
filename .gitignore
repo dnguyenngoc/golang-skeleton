@@ -4,6 +4,7 @@ __pycache__
 docs.go
 swagger.json
 swagger.yaml
+*.JPG
 
 
 # face-recorgnition

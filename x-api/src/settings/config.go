@@ -10,7 +10,8 @@ import (
 
 type (
 	Config struct {
-		Rabbitmq map[string]rabbitmq
+		Rabbitmq rabbitmq
+		Storage  storage
 	}
 
 	rabbitmq struct {
@@ -20,25 +21,26 @@ type (
 		Pass  string
 		Vhost string
 	}
+	storage struct {
+		Image string
+	}
 )
 
 // config is a global variable to hold config
-var config *Config
+var ConfEnv *Config
 
 func InitConfig() {
-
 	loggers.InfoLogger.Println("Load toml file config ...")
 	f := "./environment.toml"
 	if _, err := os.Stat(f); err != nil {
 		loggers.WarningLogger.Println("wrong env file path -> try to other path.")
 		f = "./settings/environment.toml"
 	}
-	_, err := toml.DecodeFile(f, &config)
+	_, err := toml.DecodeFile(f, &ConfEnv)
 	if err != nil {
 		loggers.ErrorLogger.Fatal(err)
 		os.Exit(1)
 		log.Panic(err)
 	}
 	loggers.InfoLogger.Println("Init config is Decoded!")
-
 }

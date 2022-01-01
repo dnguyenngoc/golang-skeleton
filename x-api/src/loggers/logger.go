@@ -13,7 +13,7 @@ var (
 
 func InitLoggerConfig() {
 	log.Println("Start init logger .......")
-	file, err := os.OpenFile("./loggers/x-api.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	file, err := os.OpenFile("./loggers/system.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		log.Panic(err)
 	}

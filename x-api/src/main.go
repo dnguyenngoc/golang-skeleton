@@ -38,6 +38,7 @@ func main() {
 	loggers.InitLoggerConfig()
 	loggers.InfoLogger.Println("Starting the application...")
 	settings.InitConfig()
+	// log.Println(settings.ConfEnv)
 
 	// CONNECT CELERY ******************************************************************
 	loggers.InfoLogger.Println("Init config variable completed! -> Init celery config")

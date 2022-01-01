@@ -34,6 +34,8 @@ COPY --from=builder /src/main .
 COPY --from=builder /src/template template
 # Copy loggers folder
 COPY --from=builder /src/loggers loggers
+# Copy loggers folder
+COPY --from=builder /src/storage storage
 # Copy settings env
 COPY --from=builder /src/settings/environment.toml environment.toml
 # Copy swagger build
